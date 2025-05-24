@@ -40,12 +40,12 @@ class CreateBusinessIdeaAI(APIView):
                 response = requests.post(
                     url="https://openrouter.ai/api/v1/chat/completions",
                     headers={
-                        "Authorization": f"Bearer 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",
+                        "Authorization": f"Bearer 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",
                         "Referer": "http://87.228.89.66",
                         "X-Title": "IdeaCheck",
                         "Content-Type": "application/json",
                     },
-                    data=json.dumps({
+                    json=({
                         "model": "deepseek/deepseek-r1:free",
                         "messages": [{"role": "user", "content": prompt}],
                     })
