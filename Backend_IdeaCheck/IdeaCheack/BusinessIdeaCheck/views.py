@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 import requests
 import json
+import os
 
 from BusinessIdeaCheck.models import BusinessIdea
 from BusinessIdeaCheck.serializer import BusinessIdeaSerializer
@@ -13,6 +14,8 @@ from django.conf import settings
 from ExpertEvaluation.models import ExpertEvaluationDB
 from User.models import UserProfile
 
+
+api_key = os.getenv("OPENAI_API_KEY")
 
 class CreateBusinessIdeaAI(APIView):
     permission_classes = [IsAuthenticated]
@@ -40,7 +43,7 @@ class CreateBusinessIdeaAI(APIView):
                 response = requests.post(
                     url="https://openrouter.ai/api/v1/chat/completions",
                     headers={
-                        "Authorization": f"Bearer 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",
+                        "Authorization": f"Bearer {api_key}",
                         "Referer": "http://87.228.89.66",
                         "X-Title": "IdeaCheck",
                         "Content-Type": "application/json",
