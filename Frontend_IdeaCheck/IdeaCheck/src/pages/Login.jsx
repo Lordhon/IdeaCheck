@@ -18,7 +18,7 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:8000/api/login/",formData);
+            const response = await axios.post("http://87.228.89.66/api/login/",formData);
 
             localStorage.setItem("token", response.data.access);
             localStorage.setItem("loggedIn", true);

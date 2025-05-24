@@ -27,7 +27,7 @@ function Register() {
             console.log("Отправляемые данные:", data);
 
             const response = await axios.post(
-                "http://localhost:8000/api/register/",
+                "http://87.228.89.66/api/register/",
                 data,
                 {
                     headers: {
