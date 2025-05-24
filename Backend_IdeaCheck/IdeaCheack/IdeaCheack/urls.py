@@ -11,7 +11,7 @@ from Investor.views import CreateApplicationInvestor, GetApplicationInvestor, Ap
 from User.views import RegisterUser, ActivateUser, PasswordResetRequest, PasswordResetConfirm, MyProfile
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('api/admin/', admin.site.urls),
     path('api/register/', RegisterUser.as_view()),
     path('api/login/' ,TokenObtainPairView.as_view()),
     path('api/user/activate/<uidb64>/<token>/', ActivateUser.as_view()),
