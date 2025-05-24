@@ -40,7 +40,7 @@ class CreateBusinessIdeaAI(APIView):
                 response = requests.post(
                     url="https://openrouter.ai/api/v1/chat/completions",
                     headers={
-                        "Authorization": f"Bearer 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",
+                        "Authorization": f"Bearer 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",
                         "Referer": "http://87.228.89.66",
                         "X-Title": "IdeaCheck",
                         "Content-Type": "application/json",
