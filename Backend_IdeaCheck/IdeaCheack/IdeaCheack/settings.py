@@ -21,6 +21,8 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:5175',
     'http://localhost:3000',
     'http://localhost',
+    'http://87.228.89.66',
+    
 ]
 
 
