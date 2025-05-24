@@ -32,7 +32,7 @@ class CreateEvaluation(APIView):
         if ExpertEvaluationDB.objects.filter(idea = idea , expert = profile).exists():
             return Response("Вы уже оценивали эту работу")
         serializer = ExpertEvaluationSerializer(data=request.data)
-        avtor = idea.expert.user.email
+        avtor = idea.user.email
         if serializer.is_valid():
             serializer.save(idea=idea , expert = profile)
             send_mail(
