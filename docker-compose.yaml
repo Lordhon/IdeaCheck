@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
   backend:
+    command: gunicorn IdeaCheack.wsgi:application --timeout 3600
     build:
       context: ./Backend_IdeaCheck/IdeaCheack
     container_name: django
