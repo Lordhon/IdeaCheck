@@ -44,7 +44,7 @@ class CreateBusinessIdeaAI(APIView):
                     url="https://openrouter.ai/api/v1/chat/completions",
                     headers={
                         "Authorization": f"Bearer {api_key}",
-                        "Referer": "http://87.228.89.66",
+                        "HTTP-Referer": "http://87.228.89.66",
                         "X-Title": "IdeaCheck",
                         "Content-Type": "application/json",
                     },
