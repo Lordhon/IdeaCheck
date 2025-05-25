@@ -24,7 +24,7 @@ services:
       dockerfile: Dockerfile
     container_name: react
     expose:
-      - "80"     # expose для внутренней сети, наружу не мапим порт
+      - "80"     
     depends_on:
       - backend
 
