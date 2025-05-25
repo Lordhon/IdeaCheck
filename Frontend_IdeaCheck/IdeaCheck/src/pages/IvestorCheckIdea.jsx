@@ -10,18 +10,17 @@ const InvestorCheckIdea = () => {
     const navigate = useNavigate();
 
 
-    
-    useEffect(() =>{
-        axios.get('/account/').then(response => {
-            setRole(response.data.role)
+  useEffect(() => {
+    axios.get('/account/')
+        .then(response => {
+            console.log("Account data:", response.data);
+            setRole(response.data.role);
             if (response.data.role !== 'investor') {
                 navigate('/IdeaCheck/');
-
             }
-
-        }).catch(error => console.log(error));
-
-    },[]);
+        })
+        .catch(error => console.log(error));
+     },[]);
 
       
 
