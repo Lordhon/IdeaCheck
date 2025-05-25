@@ -8,8 +8,9 @@ const InvestorCheckIdea = () => {
     const [error , setError] = useState({});
     const [role , setRole] = useState(null);
 
+
     
-     useEffect(() =>{
+    useEffect(() =>{
         axios.get('/account/').then(response => {
             setRole(response.data.role)
             if (response.data.role !== 'investor') {
