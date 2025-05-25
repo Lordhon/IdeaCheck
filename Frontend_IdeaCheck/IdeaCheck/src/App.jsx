@@ -10,12 +10,11 @@ import IdeaDetail from "./pages/IdeaDetail.jsx";
 import ActivateAccount from "./pages/ActivateAccount.jsx";
 import NewPassword from "./pages/ResetPassword.jsx";
 import ExpertApplication from "./pages/ExpertApplication.jsx";
-import ModeratorApplication from "./pages/ModeratorApplication.jsx";
+
 import IdeaList from "./pages/ExpertLookIdea.jsx";
 import EvaluationsIdea from "./pages/EvaluationsIdea.jsx";
 import InvestorCheckIdea from "./pages/IvestorCheckIdea.jsx";
 import InvestorApplication from "./pages/InvestorApplication.jsx";
-import ApplicationSelection from "./pages/Admin.jsx";
 import AdminPage from "./pages/Admin.jsx";
 import ModeratorApplicationExpert from "./pages/ModeratorApplication.jsx";
 import ModeratorApplicationInvestor from "./pages/ModeratorApplicationsInvestor.jsx";
@@ -50,7 +49,7 @@ function App() {
 
                     <Route path="/expert/review/" element={<IdeaList />} />
                     <Route path="/investor/review/" element={<InvestorCheckIdea />} />
-                    
+
                     <Route path="/ideas/evaluations/:id/" element={<EvaluationsIdea />} />
 
                     
