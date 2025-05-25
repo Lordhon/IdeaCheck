@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 
 const AdminPage = () => {
     const navigate = useNavigate();
