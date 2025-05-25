@@ -11,10 +11,11 @@ from BusinessIdeaCheck.models import BusinessIdea
 from ExpertEvaluation.models import ExpertEvaluationDB
 from ExpertEvaluation.serializer import ExpertEvaluationSerializer, ExpertEvaluationSerializerGet
 from User.models import UserProfile
+from ExpertEvaluation.permissionsExperions import IsExpert
 
 
 class CreateEvaluation(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsExpert]
 
     def post(self,request , idea_id):
         try:
