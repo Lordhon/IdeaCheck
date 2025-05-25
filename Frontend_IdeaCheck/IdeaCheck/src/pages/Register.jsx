@@ -24,7 +24,7 @@ function Register() {
                 email: formData.email,
                 password: formData.password,
             };
-          
+            
 
             const response = await axios.post(
                 "http://87.228.89.66/api/register/",
