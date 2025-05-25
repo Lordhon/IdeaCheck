@@ -6,7 +6,7 @@ const InvestorCheckIdea = () => {
 
     const [idea , setIdea] = useState({});
     const [error , setError] = useState({});
-    const [role , setRole] = useState({});
+    const [role , setRole] = useState(null);
 
     
      useEffect(() =>{
