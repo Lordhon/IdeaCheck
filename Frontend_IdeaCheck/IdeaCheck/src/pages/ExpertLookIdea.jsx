@@ -19,7 +19,7 @@ const IdeaList = () => {
 
         }).catch(error => console.log(error));
 
-    })
+    },[])
 
     useEffect(() => {
         axios.get('/ideas/')

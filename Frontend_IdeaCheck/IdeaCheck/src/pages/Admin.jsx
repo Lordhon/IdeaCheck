@@ -18,7 +18,7 @@ const AdminPage = () => {
 
         }).catch(error => console.log(error));
 
-    })
+    } , [])
 
     const styles = {
         container: {

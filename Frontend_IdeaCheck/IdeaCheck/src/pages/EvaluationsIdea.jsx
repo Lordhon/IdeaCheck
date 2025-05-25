@@ -28,7 +28,7 @@ const EvaluationsIdea = () => {
 
         }).catch(error => console.log(error));
 
-    })
+    }, [])
 
     useEffect(() => {
         axios.get(`/ideas/${id}/`)

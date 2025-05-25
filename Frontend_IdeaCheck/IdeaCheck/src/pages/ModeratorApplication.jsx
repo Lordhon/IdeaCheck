@@ -20,7 +20,7 @@ const ModeratorApplicationExpert = () => {
 
         }).catch(error => console.log(error));
 
-    })
+    },[])
     useEffect(() => {
         axios.get('/expert/applications/get/').then(response => setApplication(response.data)).catch(error => console.log(error));
         setMessage('Ошибка загрузки заявок');
