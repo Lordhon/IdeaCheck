@@ -13,8 +13,7 @@ from django.conf import settings
 
 from ExpertEvaluation.models import ExpertEvaluationDB
 from User.models import UserProfile
-from ExpertEvaluation.permissionsExperions import IsExpert
-from Investor.permissionsInvestor import IsInvestor
+from BusinessIdeaCheck.permissionsExpertInvestor import IsExpertOrInvestor
 
 
 api_key = os.getenv("OPENAI_API_KEY")
@@ -118,7 +117,7 @@ class GetIdeaPkExpert(APIView):
 
 
 class GetIdea(APIView):
-    permission_classes = [IsAuthenticated , IsExpert , IsInvestor]
+    permission_classes = [IsExpertOrInvestor]
     def get(self , request ):
         try:
             profile = UserProfile.objects.get(user=request.user)
