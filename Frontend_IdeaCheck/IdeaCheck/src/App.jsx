@@ -29,7 +29,7 @@ function App() {
                 <Route path="/login/" element={<Login />} />
                 <Route path="/reset-password/" element={<ResetPassword />} />
                 <Route path="/user/activate/:uid/:token/" element={<ActivateAccount />} />
-                <Route path="/api/user/reset_password/:uid/:token/" element={<NewPassword />} />
+                <Route path="/user/reset_password/:uid/:token/" element={<NewPassword />} />
                 {/* Защищенные маршруты */}
                 <Route element={<PrivateRoute />}>
                     <Route path="/IdeaCheck/" element={<Main />} />
