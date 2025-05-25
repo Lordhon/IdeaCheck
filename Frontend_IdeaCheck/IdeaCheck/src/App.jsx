@@ -37,7 +37,10 @@ function App() {
                     <Route path="/create-idea/" element={<CreateIdea />} />
                     <Route path="/account/" element={<Account />} />
                     <Route path="/idea/:id/" element={<IdeaDetail />} />
+
                     <Route path="/expert/application/" element={<ExpertApplication />} />
+                    <Route path="/investor/application/" element={<InvestorApplication />} />
+
 
                     <Route path="/expert/application/cheking/" element={<ModeratorApplicationExpert />} />
                     <Route path="/investot/application/cheking/" element={<ModeratorApplicationInvestor />} />
@@ -46,13 +49,16 @@ function App() {
 
 
                     <Route path="/expert/review/" element={<IdeaList />} />
-
-                    <Route path="/ideas/evaluations/:id/" element={<EvaluationsIdea />} />
                     <Route path="/investor/review/" element={<InvestorCheckIdea />} />
+                    
+                    <Route path="/ideas/evaluations/:id/" element={<EvaluationsIdea />} />
+
+                    
+
                     <Route path="/admin/" element={<AdminPage />} />
 
 
-                    <Route path="/investor/application/" element={<InvestorApplication />} />
+                  
 
 
 

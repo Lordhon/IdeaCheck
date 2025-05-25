@@ -3,10 +3,25 @@ import {useNavigate, useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 
 const InvestorCheckIdea = () => {
+
     const [idea , setIdea] = useState({});
     const [error , setError] = useState({});
+     const [role , setRole] = useState({});
 
+    
+     useEffect(() =>{
+        axios.get('/account/').then(response => {
+            setRole(response.data.role)
+            if (response.data.role !== 'investor') {
+                navigate('/IdeaCheck/');
 
+            }
+
+        }).catch(error => console.log(error));
+
+    })
+
+      
 
 
     useEffect( () => {
@@ -55,6 +70,7 @@ const InvestorCheckIdea = () => {
 
         </div>
     );
+
 };
 
 export default InvestorCheckIdea;

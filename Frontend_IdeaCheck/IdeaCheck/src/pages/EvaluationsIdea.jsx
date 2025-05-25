@@ -15,6 +15,20 @@ const EvaluationsIdea = () => {
     const [error, setError] = useState({});
     const [message, setMessage] = useState('');
     const { id } = useParams();
+    const [role, setRole] = useState(null);
+
+
+       useEffect(() =>{
+        axios.get('/account/').then(response => {
+            setRole(response.data.role)
+            if (response.data.role !== 'moderator') {
+                navigate('/IdeaCheck/');
+
+            }
+
+        }).catch(error => console.log(error));
+
+    })
 
     useEffect(() => {
         axios.get(`/ideas/${id}/`)

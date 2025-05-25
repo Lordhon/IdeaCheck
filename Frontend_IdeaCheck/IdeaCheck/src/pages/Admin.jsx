@@ -3,6 +3,20 @@ import { useNavigate } from 'react-router-dom';
 
 const AdminPage = () => {
     const navigate = useNavigate();
+    const [role, setRole] = useState(null);
+
+
+       useEffect(() =>{
+        axios.get('/account/').then(response => {
+            setRole(response.data.role)
+            if (response.data.role !== 'moderator') {
+                navigate('/IdeaCheck/');
+
+            }
+
+        }).catch(error => console.log(error));
+
+    })
 
     const styles = {
         container: {

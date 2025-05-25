@@ -6,6 +6,20 @@ const IdeaList = () => {
     const [ideas, setIdeas] = useState([]);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const [role, setRole] = useState(null);
+
+
+       useEffect(() =>{
+        axios.get('/account/').then(response => {
+            setRole(response.data.role)
+            if (response.data.role !== 'expert') {
+                navigate('/IdeaCheck/');
+
+            }
+
+        }).catch(error => console.log(error));
+
+    })
 
     useEffect(() => {
         axios.get('/ideas/')
