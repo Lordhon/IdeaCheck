@@ -21,7 +21,7 @@ const InvestorCheckIdea = () => {
 
         }).catch(error => console.log(error));
 
-    })
+    },[]);
 
       
 
