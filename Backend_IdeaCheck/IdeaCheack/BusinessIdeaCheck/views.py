@@ -13,7 +13,7 @@ from django.conf import settings
 
 from ExpertEvaluation.models import ExpertEvaluationDB
 from User.models import UserProfile
-from BusinessIdeaCheck.permissionsExpertInvestor import IsExpertOrInvestor
+from BusinessIdeaCheck.permissons import  IsExpertOrInvestor
 
 
 api_key = os.getenv("OPENAI_API_KEY")
