@@ -7,6 +7,7 @@ const InvestorCheckIdea = () => {
     const [idea , setIdea] = useState({});
     const [error , setError] = useState({});
     const [role , setRole] = useState(null);
+    const navigate = useNavigate();
 
 
     
