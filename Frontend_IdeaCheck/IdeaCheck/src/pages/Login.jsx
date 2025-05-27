@@ -18,7 +18,7 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://87.228.89.66/api/login/",formData);
+            const response = await axios.post("http://192.168.0.108/api/login/",formData);
 
             localStorage.setItem("token", response.data.access);
             localStorage.setItem("loggedIn", true);
@@ -39,23 +39,8 @@ function Login() {
                 <div style={styles.formBox}>
                     <h2 style={styles.title}>Вход</h2>
                     <form onSubmit={handleLogin} style={styles.form}>
-                        <input
-                            name="username"
-                            type="text"
-                            placeholder="Имя пользователя"
-                            value={formData.username}
-                            onChange={handleChange}
-                            required
-                            style={styles.input}
-                        />
-                        <input
-                            name="password"
-                            type="password"
-                            placeholder="Пароль"
-                            value={formData.password}
-                            onChange={handleChange}
-                            required
-                            style={styles.input}
+                        <input name="username" type="text" placeholder="Имя пользователя" value={formData.username} onChange={handleChange} required style={styles.input}/>
+                        <input name="password" type="password" placeholder="Пароль" value={formData.password} onChange={handleChange} required style={styles.input}
 
                         />
                         {error && (
