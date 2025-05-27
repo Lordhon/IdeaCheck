@@ -45,7 +45,6 @@ const IdeaDetail = () => {
         <div style={{
             backgroundColor: '#000',
             color: 'white',
-            minHeight: '100vh',
             padding: '32px',
             fontFamily: 'Arial, sans-serif'
         }}>

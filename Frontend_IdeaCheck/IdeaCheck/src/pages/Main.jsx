@@ -89,7 +89,6 @@ const App = () => {
 
 
 const containerStyle = {
-    minHeight: '100vh',
     width: '100vw',
     padding: '32px',
     textAlign: 'center',

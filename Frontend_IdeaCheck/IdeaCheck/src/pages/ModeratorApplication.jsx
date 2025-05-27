@@ -30,7 +30,7 @@ const ModeratorApplicationExpert = () => {
         try {
             const response = await axios.post(`/expert/applications/${id}/approve/`)
             setMessage('Заявка одобрена')
-            setApplication(applications.filter(item => item.id !== id));
+          
 
         }catch(error) {
             console.log(error);
@@ -42,7 +42,7 @@ const ModeratorApplicationExpert = () => {
         try {
             const response = await axios.post(`/expert/applications/${id}/reject/`)
             setMessage('Заявка отклонена')
-            setApplication(applications.filter(item => item.id !== id));
+         
 
         }catch(error) {
             console.log(error);

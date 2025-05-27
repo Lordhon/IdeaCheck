@@ -126,43 +126,19 @@ const InvestorApplication = ()=> {
             <form onSubmit={handleSubmit} style={styles.form} noValidate>
                 <div style={styles.fieldContainer}>
                     <label style={styles.label}>О себе</label>
-                    <textarea
-                        name="about"
-                        value={form.about}
-                        onChange={handleChange}
-                        placeholder="Введите информацию о себе"
-                        style={styles.input}
-                        rows={3}
-                        autoComplete="off"
-                    />
+                    <textarea name="about" value={form.about} onChange={handleChange} placeholder="Введите информацию о себе" style={styles.input} rows={3} autoComplete="off"/>
                     {errors.about && <p style={styles.error}>{errors.about}</p>}
                 </div>
 
                 <div style={styles.fieldContainer}>
                     <label style={styles.label}>Опыт</label>
-                    <textarea
-                        name="experience"
-                        value={form.experience}
-                        onChange={handleChange}
-                        placeholder="Введите ваш опыт"
-                        style={styles.input}
-                        rows={2}
-                        autoComplete="off"
-                    />
+                    <textarea name="experience" value={form.experience} onChange={handleChange} placeholder="Введите ваш опыт" style={styles.input} rows={2} autoComplete="off"/>
                     {errors.experience && <p style={styles.error}>{errors.experience}</p>}
                 </div>
 
                 <div style={styles.fieldContainer}>
                     <label style={styles.label}>Проекты</label>
-                    <textarea
-                        name="project"
-                        value={form.project}
-                        onChange={handleChange}
-                        placeholder="Введите проекты"
-                        style={styles.input}
-                        rows={2}
-                        autoComplete="off"
-                    />
+                    <textarea name="project" value={form.project} onChange={handleChange} placeholder="Введите проекты" style={styles.input} rows={2} autoComplete="off"/>
                     {errors.project && <p style={styles.error}>{errors.project}</p>}
                 </div>
 

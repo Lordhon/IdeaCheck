@@ -12,7 +12,7 @@ function ResetPassword() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://192.168.0.108/api/reset_password/", { email });
+            const response = await axios.post("http://83.222.16.195/api/reset_password/", { email });
             setMessage("Инструкции по восстановлению отправлены на ваш email");
             setError("");
         } catch (err) {
@@ -34,15 +34,7 @@ function ResetPassword() {
                         <div style={{ marginBottom: 20, textAlign: 'center' }}>
                             Введите ваш email для восстановления пароля
                         </div>
-                        <input
-                            name="email"
-                            type="email"
-                            placeholder="Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                            style={styles.input}
-                        />
+                        <input name="email" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required style={styles.input}/>
                         {error && (
                             <div style={styles.errorText}>
                                 {error}
@@ -77,7 +69,7 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        paddingTop: 40,
+        paddingTop: '40px',
         boxSizing: 'border-box',
         margin: 0,
     },

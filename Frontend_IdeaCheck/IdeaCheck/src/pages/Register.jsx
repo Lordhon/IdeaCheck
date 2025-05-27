@@ -26,15 +26,7 @@ function Register() {
             };
             
 
-            const response = await axios.post(
-                "http://83.222.16.195/api/register/",
-                data,
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                }
-            );
+            const response = await axios.post("http://83.222.16.195/api/register/",data );
             console.log("Успешный ответ:", response.data);
             navigate("/login");
         } catch (err) {
@@ -94,23 +86,23 @@ const styles = {
         margin: 0,
     },
     logo: {
-        fontSize: 32,
+        fontSize: '32px',
         fontWeight: 'bold',
-        marginBottom: 30,
+        marginBottom: '30px',
         textAlign: 'center'
     },
     layout: {
         display: 'flex',
         width: '100%',
-        maxWidth: 1300,
+        maxWidth: '1300px',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 20,
-        gap: 60
+        padding: '20px',
+        gap: '60px'
     },
     leftSide: {
-        width: 250,
-        height: 400,
+        width: '250px',
+        height: '400px',
         marginLeft: -60,
     },
     rightSide: {

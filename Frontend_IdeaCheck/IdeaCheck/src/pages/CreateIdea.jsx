@@ -3,16 +3,7 @@ import axios from '../axiossettings/axios.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const CreateIdeaForm = () => {
-    const [form, setForm] = useState({
-        title: '',
-        short_description: '',
-        target_audience: '',
-        problem: '',
-        solution: '',
-        pricing: '',
-        competitors: '',
-        channels: ''
-    });
+    const [form, setForm] = useState({title: '',short_description: '',target_audience: '',problem: '',solution: '',pricing: '',competitors: '',channels: ''});
 
     const [successMessage, setSuccessMessage] = useState('');
     const [errors, setErrors] = useState({});
@@ -21,11 +12,11 @@ const CreateIdeaForm = () => {
     const navigate = useNavigate();
 
     const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
+        setForm({ ...form, [e.target.name]: e.target.value });//написал в поле title - 'Идея ' title'Идея' и все копируется 
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Для отменяет стандартное поведение страницы 
         const newErrors = {};
         for (const field in form) {
             if (!form[field]) {
@@ -39,17 +30,7 @@ const CreateIdeaForm = () => {
                 setLoading(true);
                 const response = await axios.post('/IdeaCreate/', form);
                 console.log('Успешно отправлено:', response.data);
-                setSuccessMessage('Идея успешно отправлена!');
-                setForm({
-                    title: '',
-                    short_description: '',
-                    target_audience: '',
-                    problem: '',
-                    solution: '',
-                    pricing: '',
-                    competitors: '',
-                    channels: ''
-                });
+              
             } catch (error) {
                 if (error.response) {
                     console.error('Ошибка при отправке:', error.response.data);
@@ -69,105 +50,49 @@ const CreateIdeaForm = () => {
 
                 <div style={styles.fieldContainer}>
                     <label style={styles.label}>Название идеи</label>
-                    <textarea
-                        name="title"
-                        value={form.title}
-                        onChange={handleChange}
-                        placeholder="Введите текст..."
-                        style={styles.textarea}
-                        rows={3}
-                    />
+                    <textarea name="title" value={form.title} onChange={handleChange} placeholder="Введите текст..." style={styles.textarea} rows={3}/>
                     {errors.title && <p style={styles.error}>{errors.title}</p>}
                 </div>
 
                 <div style={styles.fieldContainer}>
                     <label style={styles.label}>Краткое описание</label>
-                    <textarea
-                        name="short_description"
-                        value={form.short_description}
-                        onChange={handleChange}
-                        placeholder="Введите текст..."
-                        style={styles.textarea}
-                        rows={2}
-                    />
+                    <textarea name="short_description" value={form.short_description} onChange={handleChange} placeholder="Введите текст..." style={styles.textarea} rows={2}/>
                     {errors.short_description && <p style={styles.error}>{errors.short_description}</p>}
                 </div>
 
                 <div style={styles.fieldContainer}>
                     <label style={styles.label}>Целевая аудитория</label>
-                    <textarea
-                        name="target_audience"
-                        value={form.target_audience}
-                        onChange={handleChange}
-                        placeholder="Введите текст..."
-                        style={styles.textarea}
-                        rows={3}
-                    />
+                    <textarea name="target_audience" value={form.target_audience} onChange={handleChange} placeholder="Введите текст..." style={styles.textarea} rows={3}/>
                     {errors.target_audience && <p style={styles.error}>{errors.target_audience}</p>}
                 </div>
 
                 <div style={styles.fieldContainer}>
                     <label style={styles.label}>Проблема</label>
-                    <textarea
-                        name="problem"
-                        value={form.problem}
-                        onChange={handleChange}
-                        placeholder="Введите текст..."
-                        style={styles.textarea}
-                        rows={3}
-                    />
+                    <textarea name="problem" value={form.problem} onChange={handleChange} placeholder="Введите текст..." style={styles.textarea} rows={3}/>
                     {errors.problem && <p style={styles.error}>{errors.problem}</p>}
                 </div>
 
                 <div style={styles.fieldContainer}>
                     <label style={styles.label}>Решение</label>
-                    <textarea
-                        name="solution"
-                        value={form.solution}
-                        onChange={handleChange}
-                        placeholder="Введите текст..."
-                        style={styles.textarea}
-                        rows={3}
-                    />
+                    <textarea name="solution" value={form.solution} onChange={handleChange} placeholder="Введите текст..." style={styles.textarea} rows={3}/>
                     {errors.solution && <p style={styles.error}>{errors.solution}</p>}
                 </div>
 
                 <div style={styles.fieldContainer}>
                     <label style={styles.label}>Ценообразование</label>
-                    <textarea
-                        name="pricing"
-                        value={form.pricing}
-                        onChange={handleChange}
-                        placeholder="Введите текст..."
-                        style={styles.textarea}
-                        rows={3}
-                    />
+                    <textarea name="pricing" value={form.pricing} onChange={handleChange} placeholder="Введите текст..." style={styles.textarea} rows={3}/>
                     {errors.pricing && <p style={styles.error}>{errors.pricing}</p>}
                 </div>
 
                 <div style={styles.fieldContainer}>
                     <label style={styles.label}>Конкуренты</label>
-                    <textarea
-                        name="competitors"
-                        value={form.competitors}
-                        onChange={handleChange}
-                        placeholder="Введите текст..."
-                        style={styles.textarea}
-                        rows={3}
-                    />
+                    <textarea name="competitors" value={form.competitors} onChange={handleChange} placeholder="Введите текст..." style={styles.textarea}  rows={3}/>
                     {errors.competitors && <p style={styles.error}>{errors.competitors}</p>}
                 </div>
 
                 <div style={styles.fieldContainer}>
                     <label style={styles.label}>Каналы продвижения</label>
-                    <textarea
-                        name="channels"
-                        value={form.channels}
-                        onChange={handleChange}
-                        placeholder="Введите текст..."
-                        style={styles.textarea}
-                        rows={3}
-                    />
+                    <textarea name="channels" value={form.channels} onChange={handleChange} placeholder="Введите текст..." style={styles.textarea} rows={3}/>
                     {errors.channels && <p style={styles.error}>{errors.channels}</p>}
                 </div>
 
@@ -179,13 +104,7 @@ const CreateIdeaForm = () => {
 
                 {successMessage && <h2 style={styles.successMessage}>{successMessage}</h2>}
 
-                <button
-                    type="button"
-                    style={styles.backButton}
-                    onClick={() => navigate(-1)}
-                >
-                    Вернуться
-                </button>
+                <button type="button" style={styles.backButton}onClick={() => navigate(-1)}>Вернуться</button>
             </form>
         </div>
     );

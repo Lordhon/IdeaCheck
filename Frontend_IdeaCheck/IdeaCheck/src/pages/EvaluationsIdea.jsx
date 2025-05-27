@@ -47,7 +47,7 @@ const EvaluationsIdea = () => {
         e.preventDefault();
 
         const newErrors = {};
-        // Проверяем обязательные поля
+       
         for (const field in form) {
             if (!form[field]) {
                 newErrors[field] = 'Обязательное поле';
@@ -98,28 +98,17 @@ const EvaluationsIdea = () => {
 
                 <div style={styles.formGroup}>
                     <label style={styles.label}>Актуальность</label>
-                    <select
-                        name="relevance"
-                        value={form.relevance}
-                        onChange={handleChange}
-                        style={styles.select}
-                    >
+                    <select name="relevance" value={form.relevance} onChange={handleChange} style={styles.select}>
                         <option value="">Выберите оценку</option>
-                        {[1,2,3,4,5,6,7,8,9,10].map(number => (
-                            <option key={number} value={number}>{number}</option>
-                        ))}
+                        {[1,2,3,4,5,6,7,8,9,10].map(number => ( 
+                            <option key={number} value={number}>{number}</option>))}//key знает и соответсвует от 1 до 10
                     </select>
                     {error.relevance && <span style={styles.error}>{error.relevance}</span>}
                 </div>
 
                 <div style={styles.formGroup}>
                     <label style={styles.label}>Инновация</label>
-                    <select
-                        name="innovation"
-                        value={form.innovation}
-                        onChange={handleChange}
-                        style={styles.select}
-                    >
+                    <select name="innovation" value={form.innovation} onChange={handleChange} style={styles.select}>
                         <option value="">Выберите оценку</option>
                         {[1,2,3,4,5,6,7,8,9,10].map(number => (
                             <option key={number} value={number}>{number}</option>
@@ -202,7 +191,6 @@ const styles = {
     page: {
         backgroundColor: '#000',
         color: '#fff',
-        minHeight: '100vh',
         padding: '32px',
         fontFamily: 'Arial, sans-serif',
         display: 'flex',

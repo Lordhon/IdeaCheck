@@ -75,7 +75,6 @@ const styles = {
         backgroundColor: '#000',
         color: 'white',
         width: '100vw',
-        height: '100vh',
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
