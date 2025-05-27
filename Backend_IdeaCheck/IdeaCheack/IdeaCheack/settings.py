@@ -16,14 +16,14 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 DEBUG = True
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
-ALLOWED_HOSTS = ['192.168.0.108',]
+ALLOWED_HOSTS = ['83.222.16.195',]
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://localhost:5174',
     'http://localhost:5175',
     'http://localhost:3000',
     'http://localhost',
-    'http://192.168.0.108',
+    'http://83.222.16.195',
     
 ]
 
