@@ -68,7 +68,6 @@ const styles = {
     noIdeasMessage:{
         textAlign: 'center',
         padding: '40px',
-        borderRadius: '8px',
         margin: '20px 0'
     },
     card: {
