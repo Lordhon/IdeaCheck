@@ -57,6 +57,8 @@ const InvestorApplication = ()=> {
             color: '#1a73e8',
         },
         form: {
+            width: '100%',
+            maxWidth: '600px',
             display: 'flex',
             flexDirection: 'column',
             gap: '20px',
