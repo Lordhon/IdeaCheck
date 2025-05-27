@@ -2,18 +2,24 @@ from datetime import timedelta
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-
-
-
-SECRET_KEY = 'django-insecure-p^077@a6pyy=4i19eg1klm*u(@c*6_%79_7!a&_c7bd%g1=7@i'
 load_dotenv()  
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
-DEBUG = True
+
+
+
+
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+SECRET_KEY = os.getenv('SECRET_KEY')
+PASSWORD_DB = os.getenv('PASSWORDDB')
+
+
+
+SECRET_KEY = SECRET_KEY
+DEBUG = False
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
 ALLOWED_HOSTS = ['83.222.16.195',]
@@ -51,7 +57,7 @@ EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ivleff.timivlev@yandex.ru'
-EMAIL_HOST_PASSWORD = 'wndnkbnkrfvpihtm'
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 MIDDLEWARE = [
@@ -86,15 +92,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'IdeaCheack.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'IdeaCheck',
         'USER':'postgres',
-        'PASSWORD' : 'postgres',
+        'PASSWORD' : PASSWORD_DB,
         'HOST':'db',
         'port':'5432',
 
@@ -130,8 +135,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -142,12 +145,10 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
+
 
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
