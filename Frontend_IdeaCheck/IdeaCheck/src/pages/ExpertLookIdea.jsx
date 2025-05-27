@@ -33,8 +33,13 @@ const IdeaList = () => {
     }, []);
 
     return (
-        <div>
-            {ideas.map(idea => (
+    <div>
+        {ideas.length === 0 ? (
+            <div style={styles.noIdeasMessage}>
+                <h3>Идей пока нет</h3>   
+            </div>
+        ) : (
+            ideas.map(idea => (
                 <div key={idea.id} style={styles.card}>
                     <h2>{idea.title}</h2>
                     <p><strong>Описание:</strong> {idea.short_description}</p>
@@ -46,16 +51,27 @@ const IdeaList = () => {
                     <p><strong>Каналы продвижения:</strong> {idea.channels}</p>
                     <p><em>Создано: {new Date(idea.created_at).toLocaleString()}</em></p>
                     <p><strong>Контакт:</strong> {idea.email}</p>
-                    <button style={styles.button} onClick={() => navigate(`/ideas/evaluations/${idea.id}/`)}>
+                    <button 
+                        style={styles.button} 
+                        onClick={() => navigate(`/ideas/evaluations/${idea.id}/`)}
+                    >
                         Оценить
                     </button>
                 </div>
-            ))}
-        </div>
-    );
-};
+            ))
+        )}
+    </div>
+);
 
+}
 const styles = {
+    noIdeasMessage:{
+        textAlign: 'center',
+        padding: '40px',
+        backgroundColor: 'white',
+        borderRadius: '8px',
+        margin: '20px 0'
+    },
     card: {
         border: '1px solid #ccc',
         margin: '16px',
