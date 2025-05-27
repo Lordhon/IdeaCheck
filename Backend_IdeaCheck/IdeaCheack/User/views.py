@@ -30,7 +30,7 @@ class RegisterUser(APIView):
 
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             token = account_activation_token.make_token(user)
-            activation_link = f"http://87.228.89.66/user/activate/{uid}/{token}/"
+            activation_link = f"http://192.168.0.108/user/activate/{uid}/{token}/"
 
             send_mail(
                 'Активация Аккаунта',
@@ -61,7 +61,7 @@ class ActivateUser(APIView):
 def send_password_reset_email(user):
     token = default_token_generator.make_token(user)
     uid = urlsafe_base64_encode(force_bytes(user.pk))
-    reset_link = f"http://87.228.89.66/user/reset_password/{uid}/{token}"
+    reset_link = f"http://192.168.0.108/user/reset_password/{uid}/{token}"
 
 
     send_mail(
