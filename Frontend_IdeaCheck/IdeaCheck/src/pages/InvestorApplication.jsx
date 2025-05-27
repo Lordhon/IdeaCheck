@@ -43,7 +43,6 @@ const InvestorApplication = ()=> {
         container: {
             backgroundColor: '#000',
             color: 'white',
-            minHeight: '100vh',
             padding: '32px',
             fontFamily: 'Arial, sans-serif',
             display: 'flex',
