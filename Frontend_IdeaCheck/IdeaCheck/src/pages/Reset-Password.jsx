@@ -12,7 +12,7 @@ function ResetPassword() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://87.228.89.66/api/reset_password/", { email });
+            const response = await axios.post("http://192.168.0.108/api/reset_password/", { email });
             setMessage("Инструкции по восстановлению отправлены на ваш email");
             setError("");
         } catch (err) {

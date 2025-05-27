@@ -6,14 +6,13 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+
+
 SECRET_KEY = 'django-insecure-p^077@a6pyy=4i19eg1klm*u(@c*6_%79_7!a&_c7bd%g1=7@i'
 load_dotenv()  
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-# SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
 ALLOWED_HOSTS = ['87.228.89.66',]
@@ -23,7 +22,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:5175',
     'http://localhost:3000',
     'http://localhost',
-    'http://87.228.89.66',
+    'http://192.168.0.108/',
     
 ]
 

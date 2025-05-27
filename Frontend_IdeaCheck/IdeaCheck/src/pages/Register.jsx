@@ -27,7 +27,7 @@ function Register() {
             
 
             const response = await axios.post(
-                "http://87.228.89.66/api/register/",
+                "http://192.168.0.108/api/register/",
                 data,
                 {
                     headers: {
