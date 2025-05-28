@@ -30,6 +30,8 @@ const CreateIdeaForm = () => {
                 setLoading(true);
                 const response = await axios.post('/IdeaCreate/', form);
                 console.log('Успешно отправлено:', response.data);
+                setSuccessMessage('Идея успешно отправлена!');
+                
               
             } catch (error) {
                 if (error.response) {
