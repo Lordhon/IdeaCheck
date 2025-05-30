@@ -96,7 +96,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'IdeaCheck',
         'USER':'postgres',
-        'PASSWORD' : os.environ.get('PASSWORD_DB'),
+        'PASSWORD' : os.environ.get('PASSWORDDB'),
         'HOST':'db',
         'port':'5432',
 
