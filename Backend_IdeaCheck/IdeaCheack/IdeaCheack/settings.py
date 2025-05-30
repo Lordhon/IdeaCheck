@@ -5,13 +5,13 @@ from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv()  
+
 
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 SECRET_KEY = os.getenv('SECRET_KEY')
-PASSWORD_DB = os.getenv('PASSWORDDB')
+PASSWORD_DB = os.environ.get('PASSWORDDB')
 
 
 
@@ -96,12 +96,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'IdeaCheck',
         'USER':'postgres',
-        'PASSWORD' : os.environ.get('PASSWORDDB'),
+        'PASSWORD' : os.getenv('PASSWORDDB'),
         'HOST':'db',
         'port':'5432',
 
     }
 }
+print('DB PASSWORD:', os.getenv('PASSWORDDB'))
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
