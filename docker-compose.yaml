@@ -41,6 +41,14 @@ services:
       POSTGRES_PASSWORD: ${PASSWORDDB}
     volumes:
       - db_data:/var/lib/postgresql/data
+  bot:
+    build: ./bot
+    container_name: telegram-bot
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./bot:/app
 
   nginx:
     image: nginx:alpine
