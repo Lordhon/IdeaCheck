@@ -34,7 +34,7 @@ const Account = () => {
                 <p><strong>Роль:</strong> {profile.role}</p>
                 <p><strong>Статус:</strong> {profile.status}</p>
                 
-                    <button onClick={() => navigate('https://t.me/CheckIdeasBot')} style={styles.subscribeButton}>Купить подписку</button>
+                    <a href="https://t.me/CheckIdeasBot" target="_blank" rel="noopener noreferrer" style={styles.subscribeButton}>Купить подписку</a>
                     <br />
                     <br />
                     <br />
