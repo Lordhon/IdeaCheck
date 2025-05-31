@@ -41,13 +41,13 @@ services:
       POSTGRES_PASSWORD: ${PASSWORDDB}
     volumes:
       - db_data:/var/lib/postgresql/data
-  bot:
-    build: ./IdeaCheckBot
-    container_name: telegram-bot
-    env_file:
-      - .env
+  telegram-bot:
+    build:
+      context: ./IdeaCheckBot  # путь к папке с Dockerfile и bot.py
+      dockerfile: Dockerfile
     volumes:
-      - ./bot:/app
+      - ./IdeaCheckBot:/app  # если есть — может затирать содержимое
+    command: ["python", "bot.py"]
 
 
   nginx:
