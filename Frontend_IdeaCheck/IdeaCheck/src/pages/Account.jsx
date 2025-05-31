@@ -33,8 +33,13 @@ const Account = () => {
                 <p><strong>Email:</strong> {profile.email}</p>
                 <p><strong>Роль:</strong> {profile.role}</p>
                 <p><strong>Статус:</strong> {profile.status}</p>
-                <button onClick={handleLogout} style={styles.logoutButton}>Выйти</button>
+                
                     <button onClick={() => navigate('https://t.me/CheckIdeasBot')} style={styles.subscribeButton}>Купить подписку</button>
+                    <br />
+                    <br />
+                    <br />
+           
+                    <button onClick={handleLogout} style={styles.logoutButton}>Выйти</button>
             </div>
 
             <div style={styles.ideaSection}>
