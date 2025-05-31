@@ -59,6 +59,20 @@ const Account = () => {
                     <br />
                     <br />
                     <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
            
                     <button onClick={handleLogout} style={styles.logoutButton}>Выйти</button>
             </div>
