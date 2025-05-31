@@ -123,4 +123,13 @@ class CheckUserAPIView(APIView):
             return Response("Неправильный login" , status=status.HTTP_400_BAD_REQUEST)
         found = User.objects.filter(username=login).exists()
         return Response({"found":found})
-
+    
+class CheckUserAPIView(APIView):
+    def get(self  , request):
+        login = request.query_params.get("login","").strip()
+        if not login:
+            return Response("Неправильный login" , status=status.HTTP_400_BAD_REQUEST)
+        user = User.objects.get(username=login)
+        userProfile = user.userprofile
+        userProfile.status = 'pro'
+        userProfile.save()
