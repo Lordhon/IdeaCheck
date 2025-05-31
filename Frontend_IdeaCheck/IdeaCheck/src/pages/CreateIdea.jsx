@@ -122,6 +122,7 @@ const CreateIdeaForm = () => {
                 {loading && <h2 style={styles.loadingMessage}>Ожидание ответа от AI...</h2>}
 
                 {successMessage && <h2 style={styles.successMessage}>{successMessage}</h2>}
+                {limitMessage && <p style={{ color: '#ff6b6b', fontWeight: 'bold', marginTop: '10px', textAlign: 'center' }}>{limitMessage}</p>}
 
                 <button type="button" style={styles.backButton}onClick={() => navigate(-1)}>Вернуться</button>
             </form>
