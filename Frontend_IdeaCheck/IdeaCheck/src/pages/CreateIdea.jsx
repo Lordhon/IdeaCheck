@@ -8,6 +8,7 @@ const CreateIdeaForm = () => {
     const [successMessage, setSuccessMessage] = useState('');
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
+    const [limitMessage, setLimitMessage] = useState('');
 
     const navigate = useNavigate();
 
@@ -17,6 +18,7 @@ const CreateIdeaForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault(); // Для отменяет стандартное поведение страницы 
+        setLimitMessage('');
         const newErrors = {};
         for (const field in form) {
             if (!form[field]) {
@@ -48,6 +50,9 @@ const CreateIdeaForm = () => {
             } catch (error) {
                 if (error.response) {
                     console.error('Ошибка при отправке:', error.response.data);
+                     if (error.response.status === 403 && error.response.data.error) {
+                        setLimitMessage(error.response.data.error);
+                     }
                 } else {
                     console.error('Ошибка сети:', error);
                 }
