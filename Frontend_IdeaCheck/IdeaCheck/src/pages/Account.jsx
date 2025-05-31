@@ -34,6 +34,7 @@ const Account = () => {
                 <p><strong>Роль:</strong> {profile.role}</p>
                 <p><strong>Статус:</strong> {profile.status}</p>
                 <button onClick={handleLogout} style={styles.logoutButton}>Выйти</button>
+                    <button onClick={() => navigate('https://t.me/CheckIdeasBot')} style={styles.subscribeButton}>Купить подписку</button>
             </div>
 
             <div style={styles.ideaSection}>
@@ -142,6 +143,18 @@ const styles = {
         color: 'white',
         textAlign: 'center',
     },
+    subscribeButton: {
+    marginTop: '15px',
+    backgroundColor: '#4caf50',  
+    color: 'white',
+    border: 'none',
+    padding: '10px 20px',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    fontWeight: 'bold',
+    fontSize: '16px',
+    width: '100%',  
+}
 };
 
 export default Account;
