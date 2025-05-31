@@ -42,7 +42,7 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
   bot:
-    build: ./bot
+    build: ./IdeaCheckBot
     container_name: telegram-bot
     restart: always
     env_file:
