@@ -32,6 +32,7 @@ const Account = () => {
                 <p><strong>Username:</strong> {profile.username}</p>
                 <p><strong>Email:</strong> {profile.email}</p>
                 <p><strong>Роль:</strong> {profile.role}</p>
+                <p><strong>Статус:</strong> {profile.status}</p>
                 <button onClick={handleLogout} style={styles.logoutButton}>Выйти</button>
             </div>
 
