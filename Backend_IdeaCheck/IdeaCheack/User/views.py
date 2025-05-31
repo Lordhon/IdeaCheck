@@ -118,9 +118,6 @@ class MyProfile(APIView):
 
 class CheckUserAPIView(APIView):
     def get(self  , request):
-        auth = request.headers.get("Authorization", "")
-        if auth != f"Bearer {settings.API_SECRET}":
-            return Response (status.status.HTTP_401_UNAUTHORIZED)
         login = request.query_params.get("login","").strip()
         if not login:
             return Response("Неправильный login" , status=status.HTTP_400_BAD_REQUEST)
