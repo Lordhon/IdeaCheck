@@ -43,10 +43,10 @@ services:
       - db_data:/var/lib/postgresql/data
   telegram-bot:
     build:
-      context: ./IdeaCheckBot  # путь к папке с Dockerfile и bot.py
+      context: ./IdeaCheckBot  
       dockerfile: Dockerfile
     volumes:
-      - ./IdeaCheckBot:/app  # если есть — может затирать содержимое
+      - ./IdeaCheckBot:/app  
     command: ["python", "bot.py"]
 
 

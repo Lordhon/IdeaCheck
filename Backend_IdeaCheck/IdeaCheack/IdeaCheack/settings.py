@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-
+load_dotenv()
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')

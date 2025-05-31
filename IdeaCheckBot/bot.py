@@ -13,11 +13,12 @@ from aiogram.filters import Command
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.client.default import DefaultBotProperties
 
-
+import os
 import requests
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-
-API_TOKEN = "8061197800:AAGycnJnsblHLw1kqm0UVnj7sm6trjj7x7I"
+from dotenv import load_dotenv
+load_dotenv()
+API_TOKEN = os.getenv("API_TOKEN")
 API_BASE_URL = "http://83.222.16.195"
 API_SECRET = "supersecretkey123"
 
