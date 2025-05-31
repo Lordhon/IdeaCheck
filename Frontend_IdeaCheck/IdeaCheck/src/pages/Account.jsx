@@ -70,9 +70,6 @@ const Account = () => {
                     <br />
                     <br />
                     <br />
-                    <br />
-                    <br />
-                    <br />
            
                     <button onClick={handleLogout} style={styles.logoutButton}>Выйти</button>
             </div>
@@ -139,7 +136,7 @@ const styles = {
         backgroundColor: '#e53935',
         color: '#fff',
         border: 'none',
-        padding: '10px 20px',
+        padding: '20px 50px',
         borderRadius: '6px',
         cursor: 'pointer',
         fontWeight: 'bold',
