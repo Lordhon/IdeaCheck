@@ -113,4 +113,17 @@ class MyProfile(APIView):
         user = request.user.userprofile
         serializer = UserProfileSerializer(user)
         return Response(serializer.data,status=status.HTTP_200_OK)
+    
+
+
+class CheckUserAPIView(APIView):
+    def get(self  , request):
+        auth = request.headers.get("Authorization", "")
+        if auth != f"Bearer {settings.API_SECRET}":
+            return Response (status.status.HTTP_401_UNAUTHORIZED)
+        login = request.query_params.get("login","").strip()
+        if not login:
+            return Response("Неправильный login" , status=status.HTTP_400_BAD_REQUEST)
+        found = User.objects.filter(username=login).exists()
+        return Response({"found":found})
 

@@ -12,6 +12,7 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 SECRET_KEY = os.getenv('SECRET_KEY')
 PASSWORD_DB = os.environ.get('PASSWORDDB')
+API_SECRET = os.getenv("API_SECRET", "supersecretkey123")
 
 
 
