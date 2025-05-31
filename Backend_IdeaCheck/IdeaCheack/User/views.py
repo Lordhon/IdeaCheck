@@ -129,7 +129,13 @@ class UpdateUserAPIView(APIView):
         login = request.query_params.get("login","").strip()
         if not login:
             return Response("Неправильный login" , status=status.HTTP_400_BAD_REQUEST)
-        user = User.objects.get(username=login)
-        userProfile = user.userprofile
-        userProfile.status = 'pro'
-        userProfile.save()
+        
+        try:
+            user = User.objects.get(username=login)
+            user.userprofile.status = 'pro'
+            user.userprofile.save()
+            return Response({"message": "Status updated to pro"}, status=status.HTTP_200_OK)
+        except User.DoesNotExist:
+            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
