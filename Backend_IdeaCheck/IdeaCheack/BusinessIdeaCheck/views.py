@@ -27,6 +27,11 @@ class CreateBusinessIdeaAI(APIView):
             user = request.user
             email = user.email
 
+            ideas = user_profile.businessidea_set.all()
+            countIdea = ideas.count()
+            if user_profile.status == 'standart' and countIdea >=10:
+                return Response ({"error":"Лимит достугнут купите подписку PRO "} ,  status=status.HTTP_403_FORBIDDEN)
+
             idea = serializer.save(user=user_profile)
             prompt = (
                 f"Название: {serializer.validated_data.get('title')}\n"
