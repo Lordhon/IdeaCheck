@@ -3,7 +3,7 @@ import axios from '../axiossettings/axios.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const CreateIdeaForm = () => {
-    // Состояние формы с полями
+   
     const [form, setForm] = useState({
         title: '',
         short_description: '',
@@ -15,21 +15,21 @@ const CreateIdeaForm = () => {
         channels: ''
     });
 
-    // Сообщение об успехе отправки
+   
     const [successMessage, setSuccessMessage] = useState('');
-    // Ошибки валидации полей
+  
     const [errors, setErrors] = useState({});
-    // Состояние загрузки
+    
     const [loading, setLoading] = useState(false);
-    // Сообщение об ошибке от сервера (например лимит)
+    
     const [limitMessage, setLimitMessage] = useState('');
 
     const navigate = useNavigate();
 
    
-     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+    const handleChange = (e) => {
+        setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+};
 
     
     const handleSubmit = async (e) => {
