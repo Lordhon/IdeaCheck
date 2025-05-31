@@ -3,6 +3,7 @@ import axios from '../axiossettings/axios.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const CreateIdeaForm = () => {
+    // Состояние формы с полями
     const [form, setForm] = useState({
         title: '',
         short_description: '',
@@ -14,27 +15,33 @@ const CreateIdeaForm = () => {
         channels: ''
     });
 
+    // Сообщение об успехе отправки
     const [successMessage, setSuccessMessage] = useState('');
+    // Ошибки валидации полей
     const [errors, setErrors] = useState({});
+    // Состояние загрузки
     const [loading, setLoading] = useState(false);
-    const [limitMessage, setLimitMessage] = useState(''); // Для ошибки с сервера (лимит и т.п.)
+    // Сообщение об ошибке от сервера (например лимит)
+    const [limitMessage, setLimitMessage] = useState('');
 
     const navigate = useNavigate();
 
+    // Обработчик изменения любого поля формы
     const handleChange = (e) => {
         const { name, value } = e.target;
         setForm(prev => ({ ...prev, [name]: value }));
     };
 
+    // Обработчик отправки формы
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Сбрасываем сообщения об ошибках и успехе при новом сабмите
+        // Сбрасываем ошибки и сообщения при новом сабмите
         setErrors({});
         setSuccessMessage('');
         setLimitMessage('');
 
-        // Валидация - проверяем, что все поля заполнены
+        // Валидация: проверяем, что все поля заполнены
         const newErrors = {};
         for (const field in form) {
             if (!form[field]) {
@@ -42,15 +49,18 @@ const CreateIdeaForm = () => {
             }
         }
 
+        // Если есть ошибки валидации — показываем их и не отправляем форму
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
-            return; // Если есть ошибки, не отправляем форму
+            return;
         }
 
         try {
             setLoading(true);
 
+            // Отправляем данные на сервер
             const response = await axios.post('/IdeaCreate/', form);
+
             console.log('Успешно отправлено:', response.data);
 
             // Показываем сообщение об успехе
@@ -71,11 +81,11 @@ const CreateIdeaForm = () => {
             if (error.response) {
                 console.error('Ошибка при отправке:', error.response.data);
 
-                // Если ошибка 403 и есть поле error в ответе - показываем это сообщение
+                // Если ошибка 403 и есть поле error - показываем его пользователю
                 if (error.response.status === 403 && error.response.data.error) {
                     setLimitMessage(error.response.data.error);
                 } else if (error.response.data.error) {
-                    // Если другая ошибка с сообщением - тоже покажем
+                    // Если другая ошибка с сообщением - тоже показываем
                     setLimitMessage(error.response.data.error);
                 } else {
                     setLimitMessage('Произошла ошибка при отправке.');
@@ -93,7 +103,8 @@ const CreateIdeaForm = () => {
         <div style={styles.page}>
             <h1 style={styles.title}>ЗАПУСТИТЬ СВОЮ ИДЕЮ</h1>
             <form onSubmit={handleSubmit} style={styles.form}>
-                {/* Поля формы */}
+
+                {/* Название идеи */}
                 <div style={styles.fieldContainer}>
                     <label style={styles.label}>Название идеи</label>
                     <textarea
@@ -107,10 +118,7 @@ const CreateIdeaForm = () => {
                     {errors.title && <p style={styles.error}>{errors.title}</p>}
                 </div>
 
-                {/* Остальные поля (как в твоём коде) */}
-                {/* ...повторяем для всех полей аналогично... */}
-
-                {/* Например, краткое описание */}
+                {/* Краткое описание */}
                 <div style={styles.fieldContainer}>
                     <label style={styles.label}>Краткое описание</label>
                     <textarea
@@ -124,21 +132,105 @@ const CreateIdeaForm = () => {
                     {errors.short_description && <p style={styles.error}>{errors.short_description}</p>}
                 </div>
 
-                {/* Продолжи для всех остальных полей (target_audience, problem, solution, pricing, competitors, channels) */}
-                {/* ... */}
+                {/* Целевая аудитория */}
+                <div style={styles.fieldContainer}>
+                    <label style={styles.label}>Целевая аудитория</label>
+                    <textarea
+                        name="target_audience"
+                        value={form.target_audience}
+                        onChange={handleChange}
+                        placeholder="Введите текст..."
+                        style={styles.textarea}
+                        rows={3}
+                    />
+                    {errors.target_audience && <p style={styles.error}>{errors.target_audience}</p>}
+                </div>
 
+                {/* Проблема */}
+                <div style={styles.fieldContainer}>
+                    <label style={styles.label}>Проблема</label>
+                    <textarea
+                        name="problem"
+                        value={form.problem}
+                        onChange={handleChange}
+                        placeholder="Введите текст..."
+                        style={styles.textarea}
+                        rows={3}
+                    />
+                    {errors.problem && <p style={styles.error}>{errors.problem}</p>}
+                </div>
+
+                {/* Решение */}
+                <div style={styles.fieldContainer}>
+                    <label style={styles.label}>Решение</label>
+                    <textarea
+                        name="solution"
+                        value={form.solution}
+                        onChange={handleChange}
+                        placeholder="Введите текст..."
+                        style={styles.textarea}
+                        rows={3}
+                    />
+                    {errors.solution && <p style={styles.error}>{errors.solution}</p>}
+                </div>
+
+                {/* Ценообразование */}
+                <div style={styles.fieldContainer}>
+                    <label style={styles.label}>Ценообразование</label>
+                    <textarea
+                        name="pricing"
+                        value={form.pricing}
+                        onChange={handleChange}
+                        placeholder="Введите текст..."
+                        style={styles.textarea}
+                        rows={3}
+                    />
+                    {errors.pricing && <p style={styles.error}>{errors.pricing}</p>}
+                </div>
+
+                {/* Конкуренты */}
+                <div style={styles.fieldContainer}>
+                    <label style={styles.label}>Конкуренты</label>
+                    <textarea
+                        name="competitors"
+                        value={form.competitors}
+                        onChange={handleChange}
+                        placeholder="Введите текст..."
+                        style={styles.textarea}
+                        rows={3}
+                    />
+                    {errors.competitors && <p style={styles.error}>{errors.competitors}</p>}
+                </div>
+
+                {/* Каналы продвижения */}
+                <div style={styles.fieldContainer}>
+                    <label style={styles.label}>Каналы продвижения</label>
+                    <textarea
+                        name="channels"
+                        value={form.channels}
+                        onChange={handleChange}
+                        placeholder="Введите текст..."
+                        style={styles.textarea}
+                        rows={3}
+                    />
+                    {errors.channels && <p style={styles.error}>{errors.channels}</p>}
+                </div>
+
+                {/* Кнопка отправки */}
                 <button type="submit" style={styles.button} disabled={loading}>
                     {loading ? 'Отправка...' : 'Отправить идею'}
                 </button>
 
+                {/* Сообщение загрузки */}
                 {loading && <h2 style={styles.loadingMessage}>Ожидание ответа от AI...</h2>}
 
-                {/* Выводим успешное сообщение */}
+                {/* Сообщение успеха */}
                 {successMessage && <h2 style={styles.successMessage}>{successMessage}</h2>}
 
-                {/* ВАЖНО: выводим ошибку с лимитом */}
+                {/* Сообщение ошибки сервера */}
                 {limitMessage && <p style={{ color: '#ff6b6b', fontWeight: 'bold', marginTop: '10px', textAlign: 'center' }}>{limitMessage}</p>}
 
+                {/* Кнопка назад */}
                 <button type="button" style={styles.backButton} onClick={() => navigate(-1)}>
                     Вернуться
                 </button>
