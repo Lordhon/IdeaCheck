@@ -124,7 +124,7 @@ class CheckUserAPIView(APIView):
         found = User.objects.filter(username=login).exists()
         return Response({"found":found})
     
-class CheckUserAPIView(APIView):
+class UpdateUserAPIView(APIView):
     def get(self  , request):
         login = request.query_params.get("login","").strip()
         if not login:
