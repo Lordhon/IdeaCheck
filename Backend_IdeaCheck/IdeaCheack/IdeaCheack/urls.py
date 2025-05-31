@@ -8,7 +8,7 @@ from Expert.views import CreateApplication, GetApplication , RejectApplications 
 from ExpertEvaluation.views import CreateEvaluation, ExpertEvaluationsByUser, ExpertEvaluationsByIdea, IdeaOverallRatingAPIView
 from Investor.views import CreateApplicationInvestor, GetApplicationInvestor, ApproveApplicationsInvestor, \
     RejectApplicationsInvestor
-from User.views import RegisterUser, ActivateUser, PasswordResetRequest, PasswordResetConfirm, MyProfile
+from User.views import RegisterUser, ActivateUser, PasswordResetRequest, PasswordResetConfirm, MyProfile , CheckUserAPIView
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
@@ -16,9 +16,10 @@ urlpatterns = [
     path('api/login/' ,TokenObtainPairView.as_view()),
     path('api/user/activate/<uidb64>/<token>/', ActivateUser.as_view()),
     path('api/user/reset_password/<uidb64>/<token>/', PasswordResetConfirm.as_view()),
-    path('api/reset_password/',PasswordResetRequest.as_view())
+    path('api/reset_password/',PasswordResetRequest.as_view()),
+    path('api/check-user/', CheckUserAPIView.as_view()),
 
-    ,
+    
     path('api/IdeaCreate/',CreateBusinessIdeaAI.as_view()),
     path('api/MyIdea/', GetMyIdea.as_view()),
     path('api/account/', MyProfile.as_view()),
