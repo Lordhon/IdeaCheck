@@ -128,7 +128,7 @@ class CheckUserAPIView(APIView):
     
 def api_security(func):
     @wraps(func)
-    def wrapped(request, *args, **kwargs):
+    def wrapped(self,request, *args, **kwargs):
         authheaders = request.headers.get("Authorization")
         
         if not authheaders:
@@ -151,7 +151,7 @@ def api_security(func):
                 status=status.HTTP_401_UNAUTHORIZED
             )
 
-        return func(request, *args, **kwargs)
+        return func(self,request, *args, **kwargs)
     return wrapped
     
 
