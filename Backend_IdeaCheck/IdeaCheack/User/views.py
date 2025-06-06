@@ -135,7 +135,7 @@ def api_security(func):
 
         if secret != settings.SECRET_API_TOKEN:
             return Response({"errors" : "Ошибка токен не подходит"})
-        print(settings.SECRET_API_TOKEN)
+        
         return func (request , *args , **kwargs)
     return wrapped
     
