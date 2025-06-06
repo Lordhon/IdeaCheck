@@ -20,7 +20,7 @@ from dotenv import load_dotenv
 load_dotenv()
 API_TOKEN = os.getenv("API_TOKEN")
 API_BASE_URL = "http://83.222.16.195"
-API_SECRET = "supersecretkey123"
+API_SECRET = "asdasdasdasdasdqwerf342454656765"
 
 # Логирование
 logging.basicConfig(level=logging.INFO)
@@ -44,7 +44,7 @@ def payment_keyboard():
     builder.button(text=f"Оплатить 1 ⭐" , pay=True)
     return builder.as_markup()
 
-# Проверка логина
+# логи
 @dp.message(F.text.regexp(r"^\w+$"))
 async def check_login(message: Message):
     login = message.text.strip()
@@ -101,7 +101,10 @@ async def process_successful_payment(message: Message) -> None:
     login = message.successful_payment.invoice_payload
 
     try:
-        response = requests.get(f'{API_BASE_URL}/api/update-user-status/?login={login}')
+        headers = {
+            'Authorization': f'Bearer {API_SECRET}'
+        }
+        response = requests.get(f'{API_BASE_URL}/api/update-user-status/?login={login}', headers=headers)
         if response.status_code==200:
             await message.answer("Статус успешно обновлён")
         else:

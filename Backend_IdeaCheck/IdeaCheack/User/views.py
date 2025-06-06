@@ -124,7 +124,23 @@ class CheckUserAPIView(APIView):
         found = User.objects.filter(username=login).exists()
         return Response({"found":found})
     
+def api_security(func):
+    def wrapped(request , *args , **kwargs):
+
+        authheaders = request.headers.get("Authorization")
+        split = authheaders.split()
+        if len(split) != 2 or split[0].lower() != "bearer":
+            return Response({"error" : "Плохой токен"})
+        secret = split[1]
+
+        if secret != settings.SECRET_API_TOKEN:
+            return Response({"errors" : "Ошибка токен не подходит"})
+        return func (request , *args , **kwargs)
+    return wrapped
+    
+
 class UpdateUserAPIView(APIView):
+    @api_security
     def get(self  , request):
         login = request.query_params.get("login","").strip()
         if not login:

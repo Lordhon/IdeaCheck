@@ -13,6 +13,7 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 SECRET_KEY = os.getenv('SECRET_KEY')
 PASSWORD_DB = os.environ.get('PASSWORDDB')
 API_SECRET = "supersecretkey123"
+SECRET_API_TOKEN = os.getenv('SECRET_API_TOKEN')
 
 
 
