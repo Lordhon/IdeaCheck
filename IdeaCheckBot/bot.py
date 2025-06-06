@@ -20,7 +20,7 @@ from dotenv import load_dotenv
 load_dotenv()
 API_TOKEN = os.getenv("API_TOKEN")
 API_BASE_URL = "http://83.222.16.195"
-SECRET_API_TOKEN = os.getenv('SECRET_API_TOKEN')
+SECRET_API_TOKEN = asdasdasdasdasdqwerf342454656765
 
 # Логирование
 logging.basicConfig(level=logging.INFO)
