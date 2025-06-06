@@ -15,7 +15,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username' , 'password' , 'email', 'first_name' , 'last_name' , 'role' , 'status')
+        fields = ('username' , 'password' , 'email', 'first_name' , 'last_name' , 'role' )
 
 
 
@@ -23,7 +23,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     username = serializers.CharField(source='user.username', read_only=True)
     email = serializers.EmailField(source='user.email', read_only=True)
-    status = serializers.CharField(source='user.status', read_only=True)
+    
 
 
     class Meta:
