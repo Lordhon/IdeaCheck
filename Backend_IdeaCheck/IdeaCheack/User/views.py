@@ -126,18 +126,30 @@ class CheckUserAPIView(APIView):
         return Response({"found":found})
     
 def api_security(func):
-    def wrapped(request , *args , **kwargs):
-
+    def wrapped(request, *args, **kwargs):
         authheaders = request.headers.get("Authorization")
+        
+        if not authheaders:
+            return Response(
+                {"error": "Отсутствует заголовок Authorization"},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+        
         split = authheaders.split()
         if len(split) != 2 or split[0].lower() != "bearer":
-            return Response({"error" : "Плохой токен"})
-        secret = split[1]
+            return Response(
+                {"error": "Неверный формат токена"},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
 
+        secret = split[1]
         if secret != settings.SECRET_API_TOKEN:
-            return Response({"errors" : "Ошибка токен не подходит"})
-        
-        return func (request , *args , **kwargs)
+            return Response(
+                {"error": "Неверный токен"},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+        return func(request, *args, **kwargs)
     return wrapped
     
 
