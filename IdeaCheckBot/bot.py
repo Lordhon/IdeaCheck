@@ -18,7 +18,7 @@ import requests
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from dotenv import load_dotenv
 load_dotenv()
-API_TOKEN = os.getenv("API_TOKEN")
+API_TOKEN = os.getenv("API_TOKEN1")
 API_BASE_URL = "http://83.222.16.195"
 SECRET_API_TOKEN = os.getenv("SECRET_API_TOKEN")
 
