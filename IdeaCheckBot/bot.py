@@ -20,7 +20,7 @@ from dotenv import load_dotenv
 load_dotenv()
 API_TOKEN = os.getenv("API_TOKEN")
 API_BASE_URL = "http://83.222.16.195"
-API_SECRET = os.getenv("SECRET_API_TOKEN")
+SECRET_API_TOKEN = os.getenv('SECRET_API_TOKEN')
 
 # Логирование
 logging.basicConfig(level=logging.INFO)
@@ -102,7 +102,7 @@ async def process_successful_payment(message: Message) -> None:
 
     try:
         headers = {
-            'Authorization': f'Bearer {API_SECRET}'
+            'Authorization': f'Bearer {SECRET_API_TOKEN}'
         }
         response = requests.get(f'{API_BASE_URL}/api/update-user-status/?login={login}', headers=headers)
         if response.status_code==200:
