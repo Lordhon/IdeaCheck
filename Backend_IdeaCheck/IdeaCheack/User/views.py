@@ -8,6 +8,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.core.mail import send_mail
 from django.conf import settings
+from rest_framework.permissions import AllowAny
 
 from User.tokens import account_activation_token
 from User.models import UserProfile
@@ -141,6 +142,8 @@ def api_security(func):
     
 
 class UpdateUserAPIView(APIView):
+    permission_classes = [AllowAny]
+    authentication_classes = [] 
     @api_security
     def get(self  , request):
         login = request.query_params.get("login","").strip()
