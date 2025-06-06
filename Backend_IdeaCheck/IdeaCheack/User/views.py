@@ -126,6 +126,7 @@ class CheckUserAPIView(APIView):
         return Response({"found":found})
     
 def api_security(func):
+    @wraps(func)
     def wrapped(request, *args, **kwargs):
         authheaders = request.headers.get("Authorization")
         
