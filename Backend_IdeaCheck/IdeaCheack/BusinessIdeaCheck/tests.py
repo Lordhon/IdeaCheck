@@ -8,7 +8,7 @@ class BusinessIdeaTest(TestCase):
         self.profile = UserProfile.objects.create(user = self.user ,status='standart', role='entrepreneur',first_name='Test', last_name='User')
         self.client.login(username='testuser' , password ='testuser')
 
-    def CreateBusinessIdea(self):
+    def test_reateBusinessIdea(self):
         data = {
             "title":"Testtitle",
             "short_description":"Testshort_description",
