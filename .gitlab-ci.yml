@@ -5,6 +5,5 @@ test-job:
   stage: test
   tags: [mypersonal-runner]
   script:
-    - Write-Host "This is run on My GitLab runner"
-    - Get-Host
+    - python manage.py test
     
