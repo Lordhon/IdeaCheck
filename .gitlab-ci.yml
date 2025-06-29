@@ -5,6 +5,6 @@ test-job:
   stage: test
   tags: [mypersonal-runner]
   script:
-    - echo "Проверка работы GitLab Runner"
-    - echo "Этот шаг выполнится на любом Runner"
-    - echo "Если вы видите этот текст - Runner работает!"
+    - Write-Host "This is run on My GitLab runner"
+    - Get-Host
+    
