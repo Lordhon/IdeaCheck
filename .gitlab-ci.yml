@@ -1,0 +1,8 @@
+stages:
+  - test
+
+test-job:
+  stage: test
+  tags: [mypersonal-runner]
+  script:
+    - python manage.py test
