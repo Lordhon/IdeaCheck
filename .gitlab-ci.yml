@@ -5,5 +5,5 @@ test-job:
   stage: test
   tags: [mypersonal-runner]
   script:
-    - cd "$CI_PROJECT_DIR\IdeaCheck\Backend_IdeaCheck\IdeaCheack"
-    - '& "C:\Users\Lordhon\AppData\Local\Programs\Python\Python310\python.exe" manage.py test'
+  - cd "$CI_PROJECT_DIR\Backend_IdeaCheck\IdeaCheack"
+  - '& "C:\Users\Lordhon\AppData\Local\Programs\Python\Python310\python.exe" manage.py test'
