@@ -1,7 +1,9 @@
-test_django:
+stages:
+  - test
+
+test-job:
   stage: test
-  tags:
-    - windows
+  tags: [mypersonal-runner]
   script:
     - Write-Host "CI_PROJECT_DIR is $env:CI_PROJECT_DIR"
     - cd "$env:CI_PROJECT_DIR\Backend_IdeaCheck\IdeaCheack"
