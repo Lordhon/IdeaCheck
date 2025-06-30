@@ -4,6 +4,16 @@ stages:
 test_backend:
   stage: test
   tags: [mypersonal-runner]
+  before_script:
+    - |
+      cat <<EOF > .env
+      OPENAI_API_KEY=$OPENAI_API_KEY
+      EMAIL_HOST_PASSWORD=$EMAIL_HOST_PASSWORD
+      SECRET_KEY=$SECRET_KEY
+      PASSWORDDB=$PASSWORDDB
+      API_TOKEN=$API_TOKEN
+      SECRET_API_TOKEN=$SECRET_API_TOKEN
+      EOF
   script:
     - docker-compose up -d        
     - docker-compose exec backend python manage.py test   
