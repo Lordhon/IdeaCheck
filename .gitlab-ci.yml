@@ -5,4 +5,4 @@ test-job:
   stage: test
   tags: [mypersonal-runner]
   script:
-    - python manage.py test
+    - 'C:\Users\Lordhon\AppData\Local\Programs\Python\Python310\python.exe manage.py test'
