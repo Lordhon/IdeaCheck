@@ -7,4 +7,4 @@ test-job:
   script:
     - Write-Host "CI_PROJECT_DIR is $env:CI_PROJECT_DIR"
     - cd "$env:CI_PROJECT_DIR\Backend_IdeaCheck\IdeaCheack"
-    - '& "C:\Users\Lordhon\AppData\Local\Programs\Python\Python310\python.exe" manage.py test'
+    - '& "C:\Users\Lordhon\AppData\Local\Programs\Python\Python313\python.exe" manage.py test'
