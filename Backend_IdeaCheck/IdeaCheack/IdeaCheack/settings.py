@@ -18,10 +18,10 @@ SECRET_API_TOKEN = os.getenv('SECRET_API_TOKEN')
 
 
 
-DEBUG = False
+DEBUG = True
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
-ALLOWED_HOSTS = ['83.222.16.195',]
+ALLOWED_HOSTS = ['*']
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://localhost:5174',
@@ -29,8 +29,10 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://localhost',
     'http://83.222.16.195',
+    'backend'
     
 ]
+
 
 
 
@@ -104,8 +106,7 @@ DATABASES = {
 
     }
 }
-print('DB PASSWORD:', os.getenv('PASSWORDDB'))
-print(SECRET_API_TOKEN)
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -117,7 +118,14 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
-
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': 'redis://redis:6379/1',
+       
+    }
+}
+CELERY_BROKER_URL = 'redis://redis:6379/0'
 
 
 AUTH_PASSWORD_VALIDATORS = [

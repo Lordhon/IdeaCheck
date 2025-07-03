@@ -5,7 +5,7 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from django.core.cache import cache
 from BusinessIdeaCheck.models import BusinessIdea
 
 from ExpertEvaluation.models import ExpertEvaluationDB
@@ -34,6 +34,11 @@ class CreateEvaluation(APIView):
             return Response("Вы уже оценивали эту работу")
         serializer = ExpertEvaluationSerializer(data=request.data)
         avtor = idea.user.user.email
+        expert = UserProfile.objects.filter(role='expert')
+        for i in expert:
+            cache_key = f'idea_for{i.user.id}'
+            cache.delete(cache_key)
+
         if serializer.is_valid():
             serializer.save(idea=idea , expert = profile)
             send_mail(

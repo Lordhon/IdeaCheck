@@ -19,7 +19,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from dotenv import load_dotenv
 load_dotenv()
 API_TOKEN = os.getenv("API_TOKEN")
-API_BASE_URL = "http://83.222.16.195"
+API_BASE_URL = "http://backend:8000"
 SECRET_API_TOKEN = os.getenv("SECRET_API_TOKEN")
 
 # Логирование
@@ -59,7 +59,7 @@ async def check_login(message: Message):
                     [InlineKeyboardButton(text="Купить PRO", callback_data=f"buy:{login}")]
                 ]
             )
-            await message.answer(f"✅ {login} {SECRET_API_TOKEN} {API_TOKEN}найден. Готовы к оплате!", reply_markup=keyboard)
+            await message.answer(f"✅ {login} найден. Готовы к оплате!", reply_markup=keyboard)
 
 
         else:

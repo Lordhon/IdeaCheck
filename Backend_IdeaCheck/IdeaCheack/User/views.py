@@ -11,6 +11,7 @@ from django.conf import settings
 from functools import wraps
 from rest_framework.permissions import AllowAny
 
+
 from User.tokens import account_activation_token
 from User.models import UserProfile
 from User.serializer import RegisterSerializer, UserProfileSerializer
@@ -18,8 +19,10 @@ from User.serializer import RegisterSerializer, UserProfileSerializer
 
 class RegisterUser(APIView):
     def post(self,request):
+        print("Получены данные:", request.data)
         serializer =RegisterSerializer(data = request.data)
         if serializer.is_valid():
+            
             username = serializer.validated_data['username']
             password = serializer.validated_data['password']
             email = serializer.validated_data['email']
@@ -43,6 +46,7 @@ class RegisterUser(APIView):
 
             )
             return Response('Пользователь создан', status=status.HTTP_201_CREATED)
+        
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ActivateUser(APIView):

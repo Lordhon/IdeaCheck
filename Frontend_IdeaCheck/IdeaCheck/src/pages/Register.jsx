@@ -26,7 +26,7 @@ function Register() {
             };
             
 
-            const response = await axios.post("http://83.222.16.195/api/register/",data );
+            const response = await axios.post("http://localhost/api/register/",data );
             console.log("Успешный ответ:", response.data);
             navigate("/login");
         } catch (err) {
