@@ -2,3 +2,4 @@ echo ".env" >> .gitignore
 git rm --cached .env
 echo ".env" >> .gitignore
 echo "IdeaCheckBot/.env" >> .gitignore
+.env
