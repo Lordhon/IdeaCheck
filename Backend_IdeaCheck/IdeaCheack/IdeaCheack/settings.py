@@ -29,7 +29,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://localhost',
     'http://83.222.16.195',
-    'backend'
+    'http://backend:8000',
     
 ]
 
