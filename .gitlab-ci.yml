@@ -15,7 +15,7 @@ test_backend:
       SECRET_API_TOKEN=$SECRET_API_TOKEN
       EOF
   script:
-    - docker-compose up -d   
+    - docker-compose up -build   
     - docker-compose exec backend python manage.py makemigrations
     - docker-compose exec backend python manage.py migrate      
     - docker-compose exec backend python manage.py test   
