@@ -17,7 +17,7 @@ test_backend:
       EOF
     - ls -la nginx/
   script:
-    - docker-compose up -build  
+    - docker-compose up -b
     - docker-compose exec backend python manage.py makemigrations
     - docker-compose exec backend python manage.py migrate      
     - docker-compose exec backend python manage.py test   
