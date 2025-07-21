@@ -1,14 +1,10 @@
 
 import logging
 import asyncio
-
-
-
 from aiogram import Bot, Dispatcher, F
 from aiogram.enums.parse_mode import ParseMode
 from aiogram.filters import CommandObject
-from aiogram.types import Message, LabeledPrice, InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, \
-    PreCheckoutQuery
+from aiogram.types import Message, LabeledPrice, InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, PreCheckoutQuery
 from aiogram.filters import Command
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.client.default import DefaultBotProperties
