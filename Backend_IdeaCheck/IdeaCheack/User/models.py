@@ -21,6 +21,8 @@ class UserProfile(models.Model):
     last_name = models.CharField(max_length=100)
     role = models.CharField(choices=ROLE_CHOICES , default='entrepreneur')
     status = models.CharField(choices=STATUS_CHOICES , default='standart')
+    jopa = models.CharField(max_length=255, null=True, blank=True)
+    siski = models.CharField(max_length=255, null=True, blank=True)
     def __str__(self):
         return f"{self.user}"
 
